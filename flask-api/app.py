@@ -1,13 +1,13 @@
 import os
 from flask import Flask, request, jsonify
-from firebase_Admin import credentials, firestore, initalize_app
+from firebase_admin import credentials, firestore, initialize_app
 
-app = Flask(__name___)
+app = Flask(__name__)
 
 creds = credentials.Certificate('key.json')
-default_app = initalize_app(creds)
+default_app = initialize_app(creds)
 fireDB = firestore.client()
-todos = db.collect('todos')
+todos = fireDB.collection('todos')
 
 
 # @app.route('/add', methods=['POST'])
@@ -18,6 +18,10 @@ todos = db.collect('todos')
 #         return jsonify({"success" : True}), 200
 #     except Exception as exception:
 #         return "An Error Occured: {}".format(exception)
+
+@app.route('/')
+def hello():
+    return "Landing Page"
 
 @app.route('/get', methods=['GET'])
 def get():
