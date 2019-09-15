@@ -26,10 +26,10 @@ def hello():
 @app.route('/get', methods=['GET'])
 def get():
     try:
-        id = request.args.get('id')
-        coords = id.split("-")
-        x = coords[0]
-        y = coords[1]
+        # id = request.args.get('id')
+        # coords = id.split("-")
+        # x = coords[0]
+        # y = coords[1]
         all_places = [doc.to_dict() for doc in places.stream()]
         return jsonify(all_places)
         # if id:
