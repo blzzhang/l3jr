@@ -42,4 +42,4 @@ def get():
         return "An Error Occured: {}".format(exception)
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=80, debug=True)
+    app.run(host='35.239.193.71', port=8069, debug=True)
